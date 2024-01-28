@@ -44,8 +44,8 @@
             <option value="6">6</option>
         </select>
         <br><br>
-        <input type="datetime" onclick="startRecording()" name="starttime" placeholder="start" required><br><br>
-        <input type="datetime" onclick="stopRecording()" name="stoptime" placeholder="stop" required><br><br>
+        <input type="datetime" onclick="startRecording()" name="starttime" placeholder="start" ><br><br>
+        <input type="datetime" onclick="stopRecording()" name="stoptime" placeholder="stop" ><br><br>
 
         <button onclick="submitData()">Submit</button> <br><br>
         <span id="Success"></span>
@@ -54,20 +54,20 @@
     
       <script>
 
-        // Function to start recording
+      
         function startRecording() {
             const startTimeInput = document.querySelector('[name="starttime"]');
             const currentDate = new Date();
-            const startTime = currentDate.toLocaleTimeString();
-            startTimeInput.value = startTime;
+            const formattedDateTime = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}`;
+            startTimeInput.value = formattedDateTime;
         }
 
-        // Function to stop recording
+       
         function stopRecording() {
             const stopTimeInput = document.querySelector('[name="stoptime"]');
             const currentDate = new Date();
-            const stopTime = currentDate.toLocaleTimeString();
-            stopTimeInput.value = stopTime;
+            const formattedDateTime = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}`;
+            stopTimeInput.value = formattedDateTime;
         }
 
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwwEg3TH_lcueJKdMHwK4NczVkr7whOXQpfHi8gd9Ki2Df6WrNzS9K5AGUcYeQB1YXR/exec'
